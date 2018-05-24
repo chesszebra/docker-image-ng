@@ -20,6 +20,9 @@ RUN chmod +x /usr/local/bin/docker-image-entrypoint
 # Run as node
 USER node
 
+# Expose port 4200 used for development
+EXPOSE 4200
+
 # Execute the entry point
 ENTRYPOINT ["/usr/local/bin/docker-image-entrypoint"]
 
