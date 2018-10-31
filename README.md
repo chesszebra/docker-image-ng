@@ -17,7 +17,7 @@ docker run --rm -it -v $(pwd):/data chesszebra/ng
 Create a new application:
 
 ```
-docker run --rm -it -v $(pwd):/data chesszebra/ng new my-app
+docker run --rm -it -v ~/.gitconfig:/home/node/.gitconfig -v $(pwd):/data chesszebra/ng new my-app
 ```
 
 Serve an application:

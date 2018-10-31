@@ -17,7 +17,12 @@ ADD usr/local/bin/docker-image-entrypoint.sh /usr/local/bin/docker-image-entrypo
 # Make it executable
 RUN chmod +x /usr/local/bin/docker-image-entrypoint
 
-# Run as node
+# Run as node:staff
+USER node:staff
+
+# Install PhantomJS
+RUN npm install -g phantomjs-prebuilt
+
 USER node
 
 # Expose port 4200 used for development
