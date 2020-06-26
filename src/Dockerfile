@@ -1,4 +1,4 @@
-FROM chesszebra/node:9.1
+FROM chesszebra/node:14.4
 
 # Run as root
 USER root
