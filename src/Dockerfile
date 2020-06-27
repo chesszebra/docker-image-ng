@@ -20,9 +20,6 @@ RUN chmod +x /usr/local/bin/docker-image-entrypoint
 # Run as node:staff
 USER node:staff
 
-# Install PhantomJS
-RUN npm install -g phantomjs-prebuilt
-
 USER node
 
 # Expose port 4200 used for development
