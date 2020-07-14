@@ -3,21 +3,22 @@
 isCommand() {
   for cmd in \
     "add" \
-    "new" \
-    "generate" \
-    "update" \
+    "analytics" \
     "build" \
+    "config" \
+    "deploy" \
+    "doc" \
+    "e2e" \
+    "generate" \
+    "help" \
+    "lint" \
+    "new" \
+    "run" \
     "serve" \
     "test" \
-    "e2e" \
-    "lint" \
-    "xi18n" \
-    "run" \
-    "eject" \
-    "config" \
-    "help" \
+    "update" \
     "version" \
-    "doc"
+    "xi18n"
   do
     if [ -z "${cmd#"$1"}" ]; then
       return 0

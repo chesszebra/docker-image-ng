@@ -7,10 +7,13 @@ env:
     - secure: "ktt+9YmBDiGItPrOrzZL9ZtKMZrWIbhZezuV57Mgz+zB98j8YHo+OYPmwwK8Or1nSwU+ZJq8g/H5GDa6QVT1zDegnz2hJZW5gL8wioU5h1nPwC1YR/5IyRHVuvVBMJANSBAg0bAa+UXqwu/doBUOVFHCoaMaNyIGEryr90G2+5u4a8ROICbFL28bgIxk0jgKt8IllcN5sV3HNgFuRglncl3dBsqDjDuA18cNY61Do9fDIB5o4SvoVhyDaXTPymcr3cFHaDK4B2VJzuCvVLc6sY1Aowg5W0+NXi+wmqiYs3Wej+nQPxpc0Y2c/o5FGWq78zls7XdsUQLylBe7agr0xcpAdXlNCz/hppqghz1gjEQMADFP6hu4S1j0UjOzzkoThzV37Eadmc2y66eBRcoZYt0YjP1Oh1amLEI0x0nM/W33N9nyYadSWSLgCI5yPriHF+eoiL1saTdahTFYvWWlsd8ic1kuaMeVrKcxs9e0CzhVOJ0GQWBKmWQ2fBWTwZiktTU6p3n9kvXl+hJtlRVsq+PJVAlZC6p08nXZHlr5Xl6oNs4LF61oO3yUolLC6w1n4yn0Bh3mTMGLyHOyAq0Uf5EGecuw8K/aoS7GDhCLTfzNFFvudOrpxaxLshmJ5rFeUaxqgiFyBBaJ5F9fTrXxDeLvQrm+8zZaj+7O1BuuNao="
     - secure: "e7na8QND11HjJq2ZEHkDXBR54PlnrZ+YkHyDZOg4V5+tLvSmCigoJmb++fO9ESpHdRv+CJB704QITkBNJ/lp7jt33fWmuf2df9XjiEN9rBK6jsoq9MvceopunwNPW+qA0nYqTDu1OraBico4H2161EX45D8WbS1lCddJhvYZ0Miqz++uujic0p0yMFrPqwUER2VzTKtBdNIMx50XrA+x8u/E5B43pKupZTGlZM/vzcNHqnXcVR8tKHW6/LXhwBL9vLJRy00TamQOAjN0SQZWDfFmWy8xY0ACNn4sCUnhy0oDUnrSaCskulHI/eT/h/JXcKzSLWIWu4uNjpk2GeGMsdXdD+fGw+kHIA/IRcsAo4x2aF2jPfv8Ezenmnb7hnMWlkkaxDUdd9rMxDokuUcl2UmOioLs0U+BqBvY58HGkgCuvlKL/CV1w1exkDTPH5VuGR4Z4mvUrWUeqB8WGuOdWxEvNtD1jhZ3U419yLH87wvB1tzdV7AGLhrefpb9qQG/Rmn+9AefRyBEnDpoiadhOVfPRn1nrqNMXJ7zqSLbv1VyjAOdAxo2ybMzb0FnPrWXLplHNJ1AwAeYvR5ecWbMppYaKEfEDkcehxSZ+G8/xAe6a1mWwqyavTV5CTCqUOoO+3aVeq4CHOMUrj2Ake7YYAJG9hfktqiJIdT7/ebZSJM="
   matrix:
-    - VERSION=latest
+    - VERSION=9
+    - VERSION=10
+    - VERSION=latest VERSION_ALIAS=10
 
 before_script:
-  - cd src/
+  - if [[ "$VERSION" != "latest" ]]; then cd "src/$VERSION"; fi
+  - if [[ "$VERSION" == "latest" ]]; then cd "src/$VERSION_ALIAS"; fi
   - IMAGE_NAME="chesszebra/$(echo "$TRAVIS_REPO_SLUG" | cut -c 25-):${VERSION}"
 
 script:
