@@ -1,0 +1,28 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    - cron: '0 0 * * 0'
+
+jobs:
+  build-ng10:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build
+        run: |
+          cd src/10
+          docker build -t chesszebra/ng:10 -t chesszebra/composer:latest .
+          docker push chesszebra/ng:10
+          docker push chesszebra/ng:latest
