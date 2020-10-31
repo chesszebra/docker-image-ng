@@ -23,6 +23,6 @@ jobs:
       - name: Build
         run: |
           cd src/10
-          docker build -t chesszebra/ng:10 -t chesszebra/composer:latest .
+          docker build -t chesszebra/ng:10 -t chesszebra/ng:latest .
           docker push chesszebra/ng:10
           docker push chesszebra/ng:latest
