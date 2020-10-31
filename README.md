@@ -1,7 +1,5 @@
 # docker-image-ng
 
-[![Build Status](https://travis-ci.org/chesszebra/docker-image-ng.svg?branch=master)](https://travis-ci.org/chesszebra/docker-image-ng)
-
 A Docker image to run the Angular CLI tools.
 
 See also https://angular.io/guide/quickstart
