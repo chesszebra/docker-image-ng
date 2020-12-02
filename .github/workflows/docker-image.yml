@@ -23,6 +23,23 @@ jobs:
       - name: Build
         run: |
           cd src/10
-          docker build -t chesszebra/ng:10 -t chesszebra/ng:latest .
+          docker build -t chesszebra/ng:10 .
           docker push chesszebra/ng:10
+
+  build-ng11:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build
+        run: |
+          cd src/11
+          docker build -t chesszebra/ng:11 -t chesszebra/ng:latest .
+          docker push chesszebra/ng:11
           docker push chesszebra/ng:latest
